@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+dist
+dll
+
+# Log files
+*.log
+
+# Editor directories and files
+.idea
+.svn
