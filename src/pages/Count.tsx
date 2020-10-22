@@ -8,7 +8,7 @@ const Count = () => {
   const [count, setCount] = useState(0);
 
   const handleClick = () => {
-    setCount((preCount) => preCount + 1);
+    setCount((preCount: number) => preCount + 1);
   };
 
   const handleChange = (value: string) => {
