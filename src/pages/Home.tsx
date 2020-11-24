@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Home = () => {
-  const [name] = useState<Array<number>>([1, 2, 3]);
+  const [name] = useState<Array<number>>([1, 2, 3, 4]);
 
   return (
     <div className="home">

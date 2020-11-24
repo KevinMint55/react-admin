@@ -134,7 +134,8 @@ module.exports = {
     //   loaders: ['babel-loader?cacheDirectory=true'],
     //   threadPool: HappyPackThreadPool,
     // })
-    new HardSourceWebpackPlugin(),
+    // TODO: 新装依赖，缓存报错
+    // new HardSourceWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
         configFile: resolve('tsconfig.json'),
