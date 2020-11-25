@@ -40,6 +40,10 @@ export const Config: RouteConfig[] = [
         path: '/count',
         component: LoadPage(() => import('../pages/Count')),
       },
+      {
+        path: '/canvas-arrow',
+        component: LoadPage(() => import('../pages/CanvasArrow')),
+      },
     ],
   },
 ];
