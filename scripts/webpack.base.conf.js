@@ -28,9 +28,10 @@ module.exports = {
     extensions: ['.js', '.jsx', '.less', '.ts', '.tsx', '.json'],
     alias: {
       // 'react-dom': '@hot-loader/react-dom',
-      Src: resolve('src'),
-      Components: resolve('src/components'),
-      Utils: resolve('src/utils'),
+      src: resolve('src'),
+      components: resolve('src/components'),
+      utils: resolve('src/utils'),
+      types: resolve('src/types'),
     },
   },
   module: {

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { CanvasDetail } from 'types/canvas';
 
 const Arrow = () => {
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -17,10 +18,10 @@ const Arrow = () => {
 
   console.log(canvas);
 
-  const style = {
+  const style: CanvasDetail = {
     width: 300,
     height: 300,
-    marginLeft: '300px',
+    // marginLeft: '300px',
   };
 
   return <canvas ref={canvas} style={style} />;

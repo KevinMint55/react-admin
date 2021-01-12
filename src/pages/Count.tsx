@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Test from 'Components/Test';
+import Test from 'components/Test';
 import { Button, Select } from 'antd';
 
 const { Option } = Select;

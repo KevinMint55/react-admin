@@ -2,14 +2,9 @@
 
 - nodejs 10+
 
-建议将npm源指向taobao源，否则容易产生依赖安装错误。执行如下命令：
-```bash
-npm config set registry https://registry.npm.taobao.org
-```
-
 ### 开发指南
 
-``` bash
+```bash
 # install dependencies
 npm install / yarn
 
