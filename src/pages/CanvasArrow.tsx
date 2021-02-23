@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { CanvasDetail } from 'types/canvas';
+import { CanvasDetail } from 'types';
+import store from 'store';
 
 const Arrow = () => {
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -16,11 +17,15 @@ const Arrow = () => {
     }
   }, []);
 
-  console.log(canvas);
+  // console.log(store);
+  store.dispatch({ type: 'INCREMENT' });
+  store.dispatch({ type: 'INCREMENT' });
+  store.dispatch({ type: 'INCREMENT' });
+  store.dispatch({ type: 'INCREMENT' });
 
   const style: CanvasDetail = {
     width: 300,
-    height: 300,
+    height: 200,
     // marginLeft: '300px',
   };
 

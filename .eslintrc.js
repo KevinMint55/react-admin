@@ -14,22 +14,13 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js', '.json'],
       },
       typescript: {},
-      webpack: {
-        config: path.resolve(__dirname, './scripts//webpack.base.conf.js'),
-      },
+      // webpack: {
+      //   config: path.resolve(__dirname, './scripts/webpack.base.conf.js'),
+      // },
     },
   },
   rules: {
-    'import/extensions': [
-      2,
-      'ignorePackages',
-      {
-        ts: 'never',
-        tsx: 'never',
-        json: 'never',
-        js: 'never',
-      },
-    ],
+    'import/extensions': 0,
     'import/prefer-default-export': 0,
 
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

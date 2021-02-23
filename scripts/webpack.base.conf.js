@@ -32,6 +32,7 @@ module.exports = {
       components: resolve('src/components'),
       utils: resolve('src/utils'),
       types: resolve('src/types'),
+      store: resolve('src/store'),
     },
   },
   module: {
