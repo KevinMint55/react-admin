@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { CanvasDetail } from 'types';
-import store from 'store';
+import { useDispatch } from 'react-redux';
+import { DemoAtions } from 'actions';
 
 const Arrow = () => {
+  const dispatch = useDispatch();
   const canvas = useRef<HTMLCanvasElement>(null);
-  console.log(canvas);
   useEffect(() => {
     const ctx = canvas.current?.getContext('2d');
     if (ctx) {
@@ -17,11 +18,7 @@ const Arrow = () => {
     }
   }, []);
 
-  // console.log(store);
-  store.dispatch({ type: 'INCREMENT' });
-  store.dispatch({ type: 'INCREMENT' });
-  store.dispatch({ type: 'INCREMENT' });
-  store.dispatch({ type: 'INCREMENT' });
+  dispatch(DemoAtions.actionA());
 
   const style: CanvasDetail = {
     width: 300,

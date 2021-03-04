@@ -1,21 +1,8 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { RootReducer } from './reducers';
 
-export interface ActionType {
-  type: string;
-}
+const composeEnhancers = composeWithDevTools({});
 
-function counter(state = 0, action: ActionType) {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
-    default:
-      return state;
-  }
-}
-
-const store = createStore(counter);
-store.subscribe(() => console.log(store.getState()));
-
-export default store;
+export const store = createStore(RootReducer, composeEnhancers(applyMiddleware(thunk)));

@@ -33,6 +33,9 @@ module.exports = {
       utils: resolve('src/utils'),
       types: resolve('src/types'),
       store: resolve('src/store'),
+      actions: resolve('src/store/actions'),
+      reducers: resolve('src/store/reducers'),
+      constant: resolve('src/constant'),
     },
   },
   module: {
