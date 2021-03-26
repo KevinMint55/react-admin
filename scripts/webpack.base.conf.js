@@ -69,11 +69,32 @@ module.exports = {
       },
       {
         test: /\.(le|c)ss$/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
-          'postcss-loader',
-          'less-loader',
+        oneOf: [
+          {
+            exclude: /node_modules|antd\.css/,
+            use: [
+              isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: {
+                    localIdentName: '[local]_[hash:base64:8]',
+                  },
+                },
+              },
+              'postcss-loader',
+              'less-loader',
+            ],
+          },
+          {
+            include: /node_modules|antd\.css/,
+            use: [
+              isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+              'css-loader',
+              'postcss-loader',
+              'less-loader',
+            ],
+          },
         ],
       },
       {
