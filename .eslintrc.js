@@ -45,6 +45,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
 
     'react/jsx-filename-extension': 0,
     'react/jsx-one-expression-per-line': 0,

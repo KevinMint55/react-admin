@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './Home.less';
+import styles from './Home.module.less';
 
 const Home = () => {
   const [name] = useState<Array<number>>([1, 2, 3, 4]);
+  console.log(styles);
 
   return (
-    <div className="home">
-      { name.map((v) => (<div className="item" key={v}>{v}</div>))}
+    <div className={styles.home}>
+      { name.map((v) => (<div className={styles.item} key={v}>{v}</div>))}
     </div>
   );
 };

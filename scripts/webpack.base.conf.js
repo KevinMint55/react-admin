@@ -10,7 +10,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 function resolve(dir) {
@@ -25,7 +25,7 @@ module.exports = {
     modules: [
       'node_modules',
     ],
-    extensions: ['.js', '.jsx', '.less', '.ts', '.tsx', '.json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
       // 'react-dom': '@hot-loader/react-dom',
       src: resolve('src'),
@@ -69,32 +69,28 @@ module.exports = {
       },
       {
         test: /\.(le|c)ss$/,
-        oneOf: [
+        exclude: /\.module\.(le|c)ss$/,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'less-loader',
+        ],
+      },
+      {
+        test: /\.module\.(le|c)ss$/,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {
-            exclude: /node_modules|antd\.css/,
-            use: [
-              isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: {
-                    localIdentName: '[local]_[hash:base64:8]',
-                  },
-                },
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]_[hash:base64:8]',
               },
-              'postcss-loader',
-              'less-loader',
-            ],
+            },
           },
-          {
-            include: /node_modules|antd\.css/,
-            use: [
-              isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-              'css-loader',
-              'postcss-loader',
-              'less-loader',
-            ],
-          },
+          'postcss-loader',
+          'less-loader',
         ],
       },
       {

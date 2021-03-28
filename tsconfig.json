@@ -8,6 +8,7 @@
     "allowJs": false, // 允许编译 js 文件
     "isolatedModules": true, // 将每个文件作为单独的模块
     "strict": true, // 启用所有严格类型检查选项
+    "typeRoots": ["./node_modules/@types/", "./src/types/"],
 
     // 模块解析选项
     "moduleResolution": "node", // 指定模块解析策略
